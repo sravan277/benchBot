@@ -57,3 +57,112 @@ Note to Students:
 •	Marks will be awarded for correctness, clarity, and proper usage of tools.
 ________________________________________
 
+Step 1: Requirements
+
+Container 1 – Run the Maven project (the Docker image pushed to Docker Hub in Q4).
+
+Container 2 – Run a database (MySQL/PostgreSQL/MongoDB).
+
+Both should run together and communicate.
+
+Demonstrate startup using:
+
+docker-compose up
+
+Step 2: Example docker-compose.yml
+
+Here’s an example using Tomcat + MySQL:
+
+version: "3.9"
+
+services:
+  webapp:
+    image: username/my-maven-app:v1   # replace with your Docker Hub image
+    container_name: webapp-container
+    ports:
+      - "8080:8080"
+    depends_on:
+      - db
+    environment:
+      - DB_HOST=db
+      - DB_USER=root
+      - DB_PASSWORD=root
+
+  db:
+    image: mysql:8.0
+    container_name: mysql-container
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: mydb
+      MYSQL_USER: appuser
+      MYSQL_PASSWORD: apppass
+    ports:
+      - "3306:3306"
+    volumes:
+      - db_data:/var/lib/mysql
+
+volumes:
+  db_data:
+
+Step 3: Running the setup
+
+Save the above file as docker-compose.yml.
+
+Run:
+
+docker-compose up --build
+
+
+Both containers (app + DB) will start.
+
+Access app in browser: http://localhost:8080
+
+Step 4: Common Errors/Difficulties
+
+App can’t connect to DB
+
+Fix: Use service name (db) as hostname instead of localhost.
+
+Example: JDBC URL → jdbc:mysql://db:3306/mydb.
+
+Port already in use
+
+If 8080 or 3306 is busy, use different host ports:
+
+ports:
+  - "8081:8080"
+  - "3307:3306"
+
+
+Database not ready before app starts
+
+App may crash if DB takes time to initialize.
+
+Fix: Add retries or wait-for-db script.
+
+Forgot Docker Hub login
+
+If image is private, must docker login.
+
+YAML indentation errors
+
+Always use spaces, not tabs.
+
+Step 5: Short Questions (SQB)
+
+Possible quick questions in this section:
+
+Difference between docker run and docker-compose up.
+
+What is the role of depends_on in Docker Compose?
+
+How do volumes help in Docker Compose?
+
+Command to stop containers started by Docker Compose?
+
+docker-compose down
+
+
+✅ With this, Q5 is fully explained with example, execution steps, errors, and SQBs.
+
+
