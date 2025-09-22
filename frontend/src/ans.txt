@@ -1,0 +1,110 @@
+Q1. Problem Statement Analysis (10 Marks)
+Viva Q&A
+
+What is an abstract?
+→ An abstract is a brief summary of the given problem statement. It explains what the problem is, why it exists, and what the system aims to achieve, without going into technical details.
+
+Difference between functional and non-functional requirements?
+→ Functional requirements describe what the system should do, such as login, payment, or search functionality. Non-functional requirements describe how the system should work, such as performance, scalability, security, and reliability.
+
+Example of a functional requirement in a library system?
+→ The system should allow students to borrow and return books, and track due dates.
+
+Example of a non-functional requirement in the same system?
+→ The system should handle at least 100 users concurrently and respond within 2 seconds.
+
+Who are users in requirement analysis?
+→ Users are the stakeholders who interact with the system, like students, librarians, administrators, or external systems.
+
+Q2. Maven Project Building (30 Marks)
+Viva Q&A
+
+What is Maven used for?
+→ Maven is a build automation and dependency management tool for Java projects. It simplifies managing libraries, building applications, and packaging artifacts like JAR/WAR files.
+
+Which file defines dependencies in Maven?
+→ The pom.xml file (Project Object Model). It lists project details, dependencies, plugins, and build instructions.
+
+What happens when you run mvn install?
+→ Maven compiles the source code, runs unit tests, packages the application, and installs the artifact into the local repository for reuse.
+
+What is the role of the .m2 repository?
+→ It’s the local cache where Maven stores downloaded dependencies. This avoids downloading the same library repeatedly.
+
+How do you generate a WAR file?
+→ By running mvn clean package, Maven compiles and packages the application into a WAR file for deployment.
+
+Where is the WAR/JAR generated?
+→ Inside the target/ directory of the Maven project.
+
+Q3. Git and GitHub (30 Marks)
+Viva Q&A
+
+What is Git?
+→ Git is a distributed version control system that allows multiple developers to collaborate, track changes, and manage different versions of code.
+
+What is GitHub?
+→ GitHub is a cloud-based platform that hosts Git repositories, enabling collaboration, remote backup, and integration with CI/CD tools.
+
+How do you initialize a Git repository?
+→ By running git init in a project folder, Git starts tracking files in that directory.
+
+What is the purpose of git config --global user.name and user.email?
+→ To set the identity of the developer, so commits are associated with the correct author.
+
+Difference between git merge and git rebase?
+→ git merge combines changes from one branch into another with a new merge commit. git rebase rewrites history to place commits on top of another branch, giving a linear history.
+
+How do you push a project to GitHub?
+→ Add remote using git remote add origin <repo_url> and then push using git push -u origin main.
+
+Q4. Docker (20 Marks)
+Viva Q&A
+
+What is Docker?
+→ Docker is a platform that allows packaging applications and their dependencies into lightweight containers, ensuring they run consistently across environments.
+
+What is a Dockerfile?
+→ A Dockerfile is a text file with step-by-step instructions to build a Docker image, such as which base image to use, which files to copy, and which ports to expose.
+
+Difference between a Docker image and container?
+→ A Docker image is a blueprint (static file system snapshot + configuration). A container is a running instance of that image.
+
+What does EXPOSE 8080 mean in a Dockerfile?
+→ It declares that the container will listen on port 8080, allowing external applications to connect.
+
+How do you build a Docker image?
+→ By running docker build -t <image_name> ., where -t specifies a tag and . refers to the Dockerfile location.
+
+How do you push an image to Docker Hub?
+→ First tag it (docker tag myapp username/myapp:v1) and then push it (docker push username/myapp:v1).
+
+What happens if you forget to run mvn package before building the Docker image?
+→ The WAR/JAR file won’t exist in the target/ folder, so Docker will fail at the COPY step.
+
+Q5. Docker Compose (10 Marks)
+Viva Q&A
+
+What is Docker Compose?
+→ Docker Compose is a tool for defining and running multi-container applications using a single YAML configuration file (docker-compose.yml).
+
+What is the difference between Dockerfile and docker-compose.yml?
+→ Dockerfile defines how to build a single image. Docker Compose defines how multiple containers (services) run together.
+
+What does the depends_on keyword do in Docker Compose?
+→ It ensures that one service (e.g., web app) starts only after another service (e.g., database) is started.
+
+Why do we use service names like db instead of localhost?
+→ Because in Docker networking, containers communicate using service names as hostnames, not the host machine’s localhost.
+
+What is the use of volumes in Docker Compose?
+→ Volumes allow data persistence by storing data outside the container, so it is not lost when the container is stopped or removed.
+
+How do you start containers using Docker Compose?
+→ By running docker-compose up, which reads the YAML file and creates all defined containers.
+
+What is the difference between docker-compose up and docker-compose up -d?
+→ docker-compose up runs in the foreground, showing logs. docker-compose up -d runs in detached mode (background).
+
+How do you stop and remove all containers created by Docker Compose?
+→ By running docker-compose down.
