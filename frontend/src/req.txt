@@ -1,0 +1,59 @@
+Exam Question Paper Template
+Course:  Software Engineering Lab 			Exam: Internal– Practical
+Duration: 5hrs 						Max Marks: 100________________________________________Q1. Problem Statement Analysis – 10 Marks
+Task: Students will be given a problem statement. Based on it, write the following:
+1.	Abstract – Summarize the problem in your own words 
+2.	Functional Requirements – 
+3.	Non-Functional Requirements – 
+4.	users
+________________________________________
+Q2. Maven Project Building -- 30 Marks
+Task: You will be provided with a project folder. Perform the following steps:
+1.	Import the project into Maven environment 
+Will give steps how import it
+Open Eclipse
+•	Launch Eclipse IDE (preferably Eclipse IDE for Enterprise Java Developers).
+2. Clone Repository
+Go to the menu:
+File → Import → Git → Projects from Git (with smart import) → Next.
+Choose Clone URI → Next.
+Enter the GitHub repository URL (SSH or HTTPS):
+o	Example (HTTPS):
+o	https://github.com/username/repository.git
+Select the branches you want (usually main or master) → Next.
+Choose the directory where Eclipse will store the repo → Finish.
+2.	Resolve dependencies using pom.xml 
+3.	Build the project to generate the WAR/JAR file 
+4.	Verify the generated artifact in the target/ folder 
+________________________________________
+Q3. Git and GitHub -- 30 Marks
+Task: Work with Git and GitHub as follows:
+1.	Initialize a Git repository and add your project files 
+2.	Set global config
+3.	Solve the given SQB (Short Question Based) Git tasks (e.g., branch, merge, revert) Push your Maven project to GitHub 
+________________________________________
+Q4. Docker – 20 Marks
+Task: Containerize your Maven project using Docker.
+1.	Dockerfile Creation 
+o	Refer the given link/documentation to write a Dockerfile for the Maven project.
+o	https://github.com/archanareddyse/labinternal-1.git
+
+o	Ensure it copies the WAR/JAR and runs on Tomcat (or relevant base image).
+2.	Image Building 
+o	Build the Docker image using docker build -t <image_name> .
+3.	Push to Docker Hub 
+o	Tag and push the created image to your Docker Hub account.
+4.	SQB 
+o	Answer short questions related to Docker commands, image vs. container, etc.
+________________________________________
+Q5. Docker Compose -- 10 Marks
+Task: Write a docker-compose.yml file for a multi-container setup.
+1.	Container 1 – Use the Docker image you pushed to Docker Hub 
+2.	Container 2 – Configure a database container (MySQL/PostgreSQL/MongoDBEnsure both containers are running together 
+3.	Demonstrate service startup with docker-compose up 
+________________________________________
+Note to Students:
+•	All steps must be executed practically.
+•	Marks will be awarded for correctness, clarity, and proper usage of tools.
+________________________________________
+
